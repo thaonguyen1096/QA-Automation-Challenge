@@ -1,18 +1,17 @@
 // global-setup.ts
-import { FullConfig, chromium, firefox, webkit } from '@playwright/test';
+import { FullConfig, chromium, firefox } from '@playwright/test';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 import { LoginPage } from './pages/login.page';
 
 dotenv.config({
-  path: path.resolve(process.cwd(), `.env.${process.env.ENV || 'test'}`),
+  path: path.resolve(process.cwd(), `.env.${process.env.ENV || 'prod'}`),
 });
 
 // Map Playwright browser names to their launchers
 const browserLaunchers: Record<string, any> = {
   chromium,
-  firefox,
-  webkit
+  firefox
 };
 
 async function globalSetup(config: FullConfig) {

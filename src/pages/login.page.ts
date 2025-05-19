@@ -9,10 +9,10 @@ export class LoginPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.username = page.locator('#user-name');
-    this.password = page.locator('#password');
-    this.loginButton = page.locator('#login-button');
-    this.errorMessage = page.locator('div.error h3');
+    this.username = page.locator('[name=username]');
+    this.password = page.locator('[name=password]');
+    this.loginButton = page.locator('button[type=submit]');
+    this.errorMessage = page.locator('.oxd-alert-content-text');
   }
 
   async goto() {
@@ -39,6 +39,6 @@ export class LoginPage {
 
   async verifyLoginUnsuccessfully()
   {
-    expect(await this.errorMessage.textContent()).toBe("Epic sadface: Username and password do not match any user in this service");
+    expect(await this.errorMessage.textContent()).toBe("Invalid credentials");
   }
 }

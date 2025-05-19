@@ -47,14 +47,6 @@ export default defineConfig({
         ...devices['Desktop Firefox'],
         storageState: path.resolve(__dirname, 'auth.firefox.json')
        },
-    },
-
-    {
-      name: 'webkit',
-      use: { 
-        ...devices['Desktop Safari'] ,
-        storageState: path.resolve(__dirname, 'auth.webkit.json')
-      },
-    },
+    }
   ]
 });

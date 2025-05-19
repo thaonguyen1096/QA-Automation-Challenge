@@ -2,20 +2,15 @@ import { expect, type Locator, type Page } from '@playwright/test';
 
 export class CommonPage {
   private readonly page: Page;
-  private readonly cart: Locator;
+  private readonly userDropdown: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    this.cart = page.locator('#shopping_cart_container');
+    this.userDropdown = page.locator('.oxd-userdropdown');
   }
 
-  async clickCart()
-  { 
-    await this.cart.click();
-  }
-
-  async verifyCartDisplay()
+  async verifyUserDropdownDisplay()
   {
-    await expect(this.cart).toBeVisible();
+    await expect(this.userDropdown).toBeVisible();
   }
 }
